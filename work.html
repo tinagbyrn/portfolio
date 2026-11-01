@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work — Christine Gabayeron</title>
+  <meta name="description" content="Selected UI/UX, graphic design and web development projects by Christine Gabayeron.">
+  <meta property="og:title" content="Christine Gabayeron — Design × Code">
+  <meta property="og:description" content="UI/UX · Graphic Design · Web Development. Based in Cebu, Philippines.">
+  <meta property="og:image" content="assets/img/portrait.webp">
+  <meta name="theme-color" content="#f6f2ea">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 32'%3E%3Cg fill='none' stroke-width='3'%3E%3Ccircle cx='14' cy='16' r='11' stroke='%23e4572e'/%3E%3Ccircle cx='24' cy='16' r='11' stroke='%23d99a1e'/%3E%3Ccircle cx='34' cy='16' r='11' stroke='%233d5a80'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="work">
+  <main>
+    <section class="page-head wrap">
+      <span class="label">Index — all projects</span>
+      <h1 class="display" data-split style="margin-top:22px">Selected <span class="it">work</span></h1>
+      <div class="row">
+        <p class="lead" data-reveal>Brands, websites and internal tools. Filter by the ring you care about most.</p>
+        <span class="mono muted" data-reveal="0.1"><span id="count">0</span> projects · 2019 — 2026</span>
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter is-active" data-filter="all" aria-pressed="true">All <sup></sup></button>
+          <button class="filter" data-filter="ux" aria-pressed="false"><span class="dot ux"></span>UI/UX <sup></sup></button>
+          <button class="filter" data-filter="gfx" aria-pressed="false"><span class="dot gfx"></span>Graphic <sup></sup></button>
+          <button class="filter" data-filter="dev" aria-pressed="false"><span class="dot dev"></span>Web Dev <sup></sup></button>
+        </div>
+        <div class="view-toggle" role="group" aria-label="Layout">
+          <button data-view="grid" class="is-active" aria-pressed="true">Grid</button>
+          <button data-view="list" aria-pressed="false">List</button>
+        </div>
+      </div>
+      <div id="work" class="grid-view"></div>
+    </section>
+    <div class="hover-preview" aria-hidden="true"><img alt=""></div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/work.js"></script>
+</body>
+</html>

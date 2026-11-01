@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Christine Gabayeron</title>
+  <meta name="description" content="Get in touch with Christine Gabayeron for UI/UX, graphic design and web development work.">
+  <meta property="og:title" content="Christine Gabayeron — Design × Code">
+  <meta property="og:description" content="UI/UX · Graphic Design · Web Development. Based in Cebu, Philippines.">
+  <meta property="og:image" content="assets/img/portrait.webp">
+  <meta name="theme-color" content="#f6f2ea">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 32'%3E%3Cg fill='none' stroke-width='3'%3E%3Ccircle cx='14' cy='16' r='11' stroke='%23e4572e'/%3E%3Ccircle cx='24' cy='16' r='11' stroke='%23d99a1e'/%3E%3Ccircle cx='34' cy='16' r='11' stroke='%233d5a80'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact" data-nofooter>
+  <main>
+    <section class="wrap contact">
+      <div>
+        <span class="label">Contact — fig. 01</span>
+        <h1 class="display" data-split style="margin-top:22px">Let’s <span class="it">talk.</span></h1>
+        <p class="lead" data-reveal style="margin-top:26px">Tell me a little about your project or role. I usually reply within a day.</p>
+        <form id="contact-form" novalidate data-reveal="0.1">
+          <div class="field"><span class="n">01</span><div><label for="f-name">What’s your name?</label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Dela Cruz" required></div></div>
+          <div class="field"><span class="n">02</span><div><label for="f-email">Your email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required></div></div>
+          <div class="field"><span class="n">03</span><div><span class="f-label" style="display:block;font-size:clamp(20px,1.8vw,26px);margin-bottom:6px">What do you need?</span>
+            <div class="types">
+              <input type="checkbox" id="t1" name="type" value="UI/UX design"><label for="t1">UI/UX design</label>
+              <input type="checkbox" id="t2" name="type" value="Brand identity"><label for="t2">Brand identity</label>
+              <input type="checkbox" id="t3" name="type" value="Website"><label for="t3">Website</label>
+              <input type="checkbox" id="t4" name="type" value="Web app"><label for="t4">Web app</label>
+              <input type="checkbox" id="t5" name="type" value="Social / ads"><label for="t5">Social &amp; ads</label>
+              <input type="checkbox" id="t6" name="type" value="Full-time role"><label for="t6">Full-time role</label>
+            </div></div></div>
+          <div class="field"><span class="n">04</span><div><label for="f-msg">Tell me about it</label><textarea id="f-msg" name="message" rows="4" placeholder="Hi Christine, we’re looking for…" required></textarea></div></div>
+          <div class="form-foot">
+            <p class="form-note">Opens your email app with everything filled in. Prefer to chat? Use the links on the right.</p>
+            <button type="submit" class="btn solid" data-magnetic>Send message <span class="arrow">→</span></button>
+          </div>
+        </form>
+      </div>
+      <aside class="side">
+        <div class="side-gl" data-reveal data-cursor="Drag"><span class="mono muted">Start typing — the rings listen</span></div>
+        <div class="info-block" data-reveal><span class="mono">Email</span><button data-copy class="link-u" style="font-size:18px">cgabayeron96@gmail.com</button></div>
+        <div class="info-block" data-reveal><span class="mono">Phone / WhatsApp</span><a href="tel:+639287017913" class="link-u">+63 928 701 7913</a></div>
+        <div class="info-block" data-reveal><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/christine-gabayeron" target="_blank" rel="noopener" class="link-u">@christine-gabayeron ↗</a></div>
+        <div class="info-block" data-reveal><span class="mono">Local time</span><p>Cebu, Philippines · <span data-clock></span></p></div>
+        <div class="info-block" data-reveal><span class="mono">Status</span><p><span class="status"><span class="pulse"></span>Open to freelance &amp; full-time</span></p></div>
+        <div class="info-block" data-reveal><span class="mono">Résumé</span><a href="assets/Christine-Gabayeron-Resume.pdf" download class="link-u">Download PDF ↓</a></div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="assets/js/scene.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
