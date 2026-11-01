@@ -76,6 +76,7 @@
               <a href="mailto:${EMAIL}" class="link-u">Email</a>
               <a href="tel:${PHONE.replace(/\s/g, "")}" class="link-u">${PHONE}</a>
               <a href="assets/Christine-Gabayeron-Resume.pdf" download class="link-u">Résumé (PDF)</a>
+              <a href="assets/Christine-Gabayeron-Portfolio.pdf" download class="link-u">Portfolio (PDF)</a>
             </div>
             <div><span class="mono">© ${new Date().getFullYear()}</span>Designed &amp; built<br>by Christine Gabayeron</div>
           </div>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Christine Gabayeron — Portfolio</title>
+<!-- Print source for assets/Christine-Gabayeron-Portfolio.pdf.
+     Project text comes from assets/js/data.js. Re-render with:
+     chrome --headless --no-pdf-header-footer --print-to-pdf=assets/Christine-Gabayeron-Portfolio.pdf pdf/portfolio-print.html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --bg: #f6f2ea; --paper: #fbf9f4; --cream: #efe8db; --ink: #171614; --ink-2: #3a3833; --muted: #77726a;
+    --line: rgba(23,22,20,.14); --ux: #e4572e; --gfx: #d99a1e; --dev: #3d5a80;
+    --serif: "Instrument Serif", Georgia, serif; --sans: "Inter Tight", Arial, sans-serif; --mono: "JetBrains Mono", monospace;
+  }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; background: #ddd; }
+  body { font-family: var(--sans); color: var(--ink); font-size: 9.6pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; background: var(--bg); padding: 16mm 16mm 14mm; position: relative; overflow: hidden; page-break-after: always; break-after: page; display: flex; flex-direction: column; margin: 0 auto 10px; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  @media print { html, body { background: var(--bg); } .page { margin: 0; } }
+
+  .mono { font-family: var(--mono); font-size: 7pt; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .serif { font-family: var(--serif); font-weight: 400; }
+  .it { font-family: var(--serif); font-style: italic; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; vertical-align: middle; }
+  .dot.ux { background: var(--ux); } .dot.gfx { background: var(--gfx); } .dot.dev { background: var(--dev); }
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  /* header + footer on each page */
+  .top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 5mm; border-bottom: 1px solid var(--line); margin-bottom: 8mm; }
+  .logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 9pt; }
+  .rings { position: relative; width: 24px; height: 14px; }
+  .rings i { position: absolute; top: 0; width: 13px; height: 13px; border-radius: 50%; border: 1.4px solid; }
+  .rings i:nth-child(1) { left: 0; border-color: var(--ux); } .rings i:nth-child(2) { left: 5.5px; border-color: var(--gfx); } .rings i:nth-child(3) { left: 11px; border-color: var(--dev); }
+  .foot { margin-top: auto; padding-top: 4mm; border-top: 1px solid var(--line); display: flex; justify-content: space-between; }
+
+  /* cover */
+  .cover-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10mm; flex: 1; }
+  .cover h1 { font-family: var(--serif); font-weight: 400; font-size: 60pt; line-height: .9; letter-spacing: -.02em; margin: 6mm 0 7mm; }
+  .roles { display: flex; flex-direction: column; gap: 3mm; margin-bottom: 9mm; }
+  .roles span { display: flex; align-items: center; gap: 8px; font-size: 13pt; }
+  .pitch { font-family: var(--serif); font-size: 17pt; line-height: 1.2; max-width: 22ch; }
+  .pitch .it { color: var(--ux); }
+  .portrait { border-radius: 10px; overflow: hidden; background: var(--cream); height: 128mm; }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); margin-top: 8mm; }
+  .stats div { padding: 4mm 4mm 0 0; }
+  .stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: 30pt; line-height: 1; }
+  .stats b sup { font-size: .45em; color: var(--ux); }
+  .stats p { font-size: 8pt; color: var(--muted); margin-top: 1.5mm; }
+  .contact-bar { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: 4mm; background: var(--ink); color: var(--paper); border-radius: 10px; padding: 5mm 6mm; margin-top: 8mm; }
+  .contact-bar .mono { color: rgba(251,249,244,.55); display: block; margin-bottom: 1mm; }
+  .contact-bar a, .contact-bar span.v { font-size: 9pt; }
+
+  /* section titles */
+  .kicker { display: flex; align-items: center; gap: 8px; }
+  .kicker::before { content: ""; width: 18px; height: 1px; background: rgba(23,22,20,.3); }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: 34pt; line-height: .95; letter-spacing: -.01em; margin: 3mm 0 5mm; }
+  h2.title .it { color: var(--ux); }
+  h3.sub { font-family: var(--mono); font-weight: 400; font-size: 7.4pt; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 2.5mm; }
+
+  /* profile page */
+  .two { display: grid; grid-template-columns: 1.35fr 1fr; gap: 9mm; }
+  .exp { border-top: 1px solid var(--line); padding: 3.2mm 0; display: grid; grid-template-columns: 27mm 1fr; gap: 4mm; }
+  .exp:last-child { border-bottom: 1px solid var(--line); }
+  .exp h4 { margin: 0; font-size: 10.5pt; font-weight: 600; }
+  .exp .where { color: var(--muted); font-size: 8.5pt; margin-bottom: 1.5mm; }
+  .exp ul, .bul { margin: 0; padding-left: 4mm; color: var(--ink-2); }
+  .exp li, .bul li { margin-bottom: 1mm; }
+  .box { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 4mm 4.5mm; margin-bottom: 4mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.5mm; }
+  .chip { border: 1px solid rgba(23,22,20,.22); border-radius: 99px; padding: .8mm 2.6mm; font-size: 8pt; background: var(--bg); display: inline-flex; gap: 5px; align-items: center; }
+  .skill-col { margin-bottom: 3mm; }
+  .skill-col p { font-size: 8.6pt; color: var(--ink-2); }
+  .skill-col b { display: flex; gap: 6px; align-items: center; font-size: 9pt; margin-bottom: .8mm; }
+  .certs { margin: 0; padding: 0; list-style: none; columns: 1; font-size: 8.4pt; }
+  .certs li { padding: .9mm 0; border-bottom: 1px solid var(--line); }
+
+  /* work index */
+  table.index { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  table.index th { text-align: left; font-family: var(--mono); font-size: 7pt; font-weight: 400; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 0 3mm 2.5mm 0; border-bottom: 1px solid var(--ink); }
+  table.index td { padding: 3.2mm 3mm 3.2mm 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.index td.n { font-family: var(--mono); font-size: 7.5pt; color: var(--muted); width: 8mm; }
+  table.index td.t { font-family: var(--serif); font-size: 14pt; line-height: 1.05; width: 52mm; }
+  table.index td.t small { display: block; font-family: var(--sans); font-size: 8pt; color: var(--muted); margin-top: 1mm; }
+  table.index td.p { color: var(--muted); width: 12mm; text-align: right; font-family: var(--mono); font-size: 7.5pt; }
+
+  /* project pages */
+  .p-head { display: grid; grid-template-columns: 1fr 62mm; gap: 8mm; align-items: end; margin-bottom: 5mm; }
+  .p-head h2.title { margin-bottom: 2.5mm; }
+  .p-head .summary { font-size: 11pt; color: var(--ink-2); max-width: 52ch; }
+  .meta { display: grid; grid-template-columns: 1fr; gap: 2mm; border-left: 1px solid var(--line); padding-left: 5mm; font-size: 8.6pt; }
+  .meta .mono { display: block; margin-bottom: .4mm; }
+  .did { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-bottom: 5mm; }
+  .did div { border-top: 1.5px solid var(--ink); padding-top: 2mm; font-size: 8.6pt; color: var(--ink-2); }
+  .did div .mono { display: block; color: var(--ux); margin-bottom: 1mm; }
+  .gal { flex: 1; display: grid; gap: 3.5mm; min-height: 0; }
+  .fr { background: var(--cream); border-radius: 8px; overflow: hidden; position: relative; min-height: 0; }
+  .fr img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .fr.c img { object-fit: contain; padding: 6%; }
+  .fr.c-tight img { object-fit: contain; padding: 3%; }
+  .fr.dark { background: #111; }
+  .fr .cap { position: absolute; left: 2.5mm; bottom: 2.5mm; background: rgba(251,249,244,.92); border-radius: 99px; padding: .6mm 2.4mm; font-family: var(--mono); font-size: 6.4pt; text-transform: uppercase; letter-spacing: .05em; }
+  .browser { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
+  .browser .bar { display: flex; gap: 3px; padding: 1.8mm 2.5mm; border-bottom: 1px solid var(--line); }
+  .browser .bar i { width: 5px; height: 5px; border-radius: 50%; background: rgba(23,22,20,.25); }
+  .browser .v { flex: 1; overflow: hidden; min-height: 0; }
+  .browser { align-self: start; max-height: 100%; }
+  .browser .v img { width: 100%; display: block; }
+
+  .nda-grid { flex: 1; display: grid; grid-template-rows: repeat(3, 1fr); gap: 4mm; min-height: 0; }
+  .nda { display: grid; grid-template-columns: 70mm 1fr; gap: 6mm; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 4mm; min-height: 0; }
+  .nda .wire { background: linear-gradient(var(--line) 1px, transparent 1px) 0 0/12px 12px, linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/12px 12px, var(--bg); border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 3mm; }
+  .nda .wire svg { width: 100%; height: auto; }
+  .nda h4 { font-family: var(--serif); font-weight: 400; font-size: 17pt; margin: 1mm 0 1.5mm; line-height: 1.05; }
+  .nda .tags { display: flex; gap: 1.5mm; flex-wrap: wrap; margin-top: 2mm; }
+
+  .closing { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .closing h2 { font-family: var(--serif); font-weight: 400; font-size: 64pt; line-height: .9; letter-spacing: -.02em; margin: 4mm 0 8mm; }
+  .closing h2 .it { color: var(--ux); }
+  .closing .rows { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; border-top: 1px solid var(--ink); }
+  .closing .rows div { padding: 4mm 0; border-bottom: 1px solid var(--line); }
+  .closing .rows .mono { display: block; margin-bottom: 1mm; }
+  .closing .rows a, .closing .rows span.v { font-size: 12pt; }
+</style>
+</head>
+<body>
+<div id="doc"></div>
+<script src="../assets/js/data.js"></script>
+<script>
+(function () {
+  const P = Object.fromEntries(window.PROJECTS.map((p) => [p.slug, p]));
+  const SITE = "tinagbyrn.github.io/portfolio";
+  const TOTAL = 9;
+  const top = (label) => `<div class="top"><span class="logo"><span class="rings"><i></i><i></i><i></i></span>Christine Gabayeron</span><span class="mono">${label}</span></div>`;
+  const foot = (n) => `<div class="foot"><span class="mono">cgabayeron96@gmail.com · +63 928 701 7913</span><span class="mono">${SITE} · ${String(n).padStart(2, "0")} / ${String(TOTAL).padStart(2, "0")}</span></div>`;
+  const dots = (p) => p.disciplines.map((d) => `<span class="dot ${d}"></span> ${window.DISC[d].name}`).join("&nbsp;&nbsp; ");
+  const img = (src, cls, cap) => `<div class="fr ${cls || ""}"><img src="../${src}" alt="">${cap ? `<span class="cap">${cap}</span>` : ""}</div>`;
+  const web = (src) => `<div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="v"><img src="../${src}" alt=""></div></div>`;
+
+  function projectPage(n, slug, kicker, galleryStyle, galleryHTML) {
+    const p = P[slug];
+    return `<section class="page">${top(kicker)}
+      <div class="p-head">
+        <div><span class="mono kicker">${p.type}</span><h2 class="title">${p.title}</h2><p class="summary">${p.summary}</p></div>
+        <div class="meta">
+          <div><span class="mono">Role</span>${p.role}</div>
+          <div><span class="mono">Discipline</span>${dots(p)}</div>
+          <div><span class="mono">Tools</span>${p.tools.join(", ")}</div>
+        </div>
+      </div>
+      <div class="did">${p.points.slice(0, 3).map((t, i) => `<div><span class="mono">0${i + 1}</span>${t}</div>`).join("")}</div>
+      <div class="gal" style="${galleryStyle}">${galleryHTML}</div>
+      ${foot(n)}</section>`;
+  }
+
+  const pages = [];
+
+  /* 1 — cover */
+  pages.push(`<section class="page cover">${top("Portfolio 2026")}
+    <div class="cover-grid">
+      <div>
+        <span class="mono kicker">UI/UX · Graphic Design · Web Development</span>
+        <h1>Christine<br>Gabayeron</h1>
+        <div class="roles">
+          <span><span class="dot ux"></span>UI/UX Designer</span>
+          <span><span class="dot gfx"></span>Graphic Designer</span>
+          <span><span class="dot dev"></span>Web Developer</span>
+        </div>
+        <p class="pitch">I design brands, plan how screens should work, and then <span class="it">build them.</span></p>
+      </div>
+      <div class="portrait"><img src="../assets/img/portrait.webp" alt=""></div>
+    </div>
+    <div class="stats">
+      <div><b>5<sup>+</sup></b><p>Years designing and building for the web</p></div>
+      <div><b>4</b><p>Internal web apps built at Lear Corporation</p></div>
+      <div><b>2<sup>×</sup></b><p>Top Performer, Newfold Digital (2023)</p></div>
+      <div><b>10</b><p>Certifications, incl. Meta Marketing &amp; DFSS</p></div>
+    </div>
+    <div class="contact-bar">
+      <div><span class="mono">Email</span><a href="mailto:cgabayeron96@gmail.com">cgabayeron96@gmail.com</a></div>
+      <div><span class="mono">Phone</span><span class="v">+63 928 701 7913</span></div>
+      <div><span class="mono">Location</span><span class="v">Cebu, Philippines</span></div>
+      <div><span class="mono">Website</span><a href="https://${SITE}/">${SITE}</a></div>
+    </div>
+    ${foot(1)}</section>`);
+
+  /* 2 — profile at a glance */
+  pages.push(`<section class="page">${top("Profile at a glance")}
+    <span class="mono kicker">About</span>
+    <h2 class="title">Design and code, <span class="it">one person.</span></h2>
+    <p style="font-size:10.5pt;color:var(--ink-2);max-width:80ch;margin-bottom:6mm">UI/UX designer, graphic designer and full-stack web developer with five years of experience. I build internal applications that cut manual work, design brands and social content, and customize client websites — so the design, the visuals and the code come from the same hands.</p>
+    <div class="two">
+      <div>
+        <h3 class="sub">Experience</h3>
+        <div class="exp"><span class="mono">Jan 2024 – Nov 2026</span><div><h4>IT Specialist</h4><p class="where">Lear Corporation · Engineering Branch</p><ul>
+          <li>Designed and launched <b>POD</b> v1 (PPAP Operations Database) alone in Q1 2025.</li>
+          <li>Designed and built <b>AMS</b>, a department asset management system.</li>
+          <li>Integrated new updates into <b>ISC</b> (IMDS Solutions Central).</li>
+          <li>App logos (Adobe, Canva); wireframes and prototypes in Figma.</li></ul></div></div>
+        <div class="exp"><span class="mono">Sept 2021 – Jan 2024</span><div><h4>Web Modification Specialist</h4><p class="where">Newfold Digital</p><ul>
+          <li>Customized business, community and lifestyle sites in WordPress, Siteplus and Hermes CMS.</li>
+          <li>Pioneer team for the company’s first web designs.</li>
+          <li>Social posts, stories and ads; Go High Level funnels.</li>
+          <li>Top Performer — January and October 2023.</li></ul></div></div>
+        <div class="exp"><span class="mono">May – Aug 2019</span><div><h4>On-the-Job Training</h4><p class="where">Lear Corporation</p><ul>
+          <li>Pioneer developer, Global Flammability website (reports, import/export).</li>
+          <li>ISC wireframes, prototypes and authentication module.</li></ul></div></div>
+        <div class="exp"><span class="mono">2015 – 2020</span><div><h4>BS Information Technology</h4><p class="where">University of Cebu Lapu-Lapu and Mandaue</p></div></div>
+      </div>
+      <div>
+        <div class="box">
+          <h3 class="sub">Skills</h3>
+          <div class="skill-col"><b><span class="dot ux"></span>UI/UX</b><p>User research &amp; usability testing, wireframing &amp; prototyping, information architecture, responsive &amp; accessible design, design systems</p></div>
+          <div class="skill-col"><b><span class="dot gfx"></span>Graphic</b><p>Brand identity, logo design, visual &amp; interaction design, social media &amp; ads</p></div>
+          <div class="skill-col" style="margin-bottom:0"><b><span class="dot dev"></span>Web Dev</b><p>WordPress builds, HTML/CSS/JS, C# .NET Core &amp; ASP.NET web apps, process automation</p></div>
+        </div>
+        <div class="box">
+          <h3 class="sub">Tools</h3>
+          <div class="chips"><span class="chip">Figma</span><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Canva</span><span class="chip">WordPress</span><span class="chip">Elementor</span><span class="chip">Bricks</span><span class="chip">Go High Level</span><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">HTML/CSS/JS</span><span class="chip">C# .NET Core</span><span class="chip">ASP.NET</span><span class="chip">Microsoft automation</span></div>
+        </div>
+        <div class="box" style="margin-bottom:0">
+          <h3 class="sub">Certifications &amp; recognition</h3>
+          <ul class="certs">
+            <li>Figma Speaker — Lear Asia Learning Week 2024</li>
+            <li>Meta Social Media Marketing Professional</li>
+            <li>Design for Six Sigma</li>
+            <li>Continuous Improvement Process Contributor</li>
+            <li>GDG: Build with AI 2025 · DevFest Cebu 2025</li>
+            <li>Foundry Ontology · Datasets · Workshop Module</li>
+            <li>GoHighLevel Workshop · Basic Automotive</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    ${foot(2)}</section>`);
+
+  /* 3 — work index */
+  const order = [["cruz-garcia", 4], ["the-hive", 5], ["c-o-sportswear", 6], ["cromark", 6], ["pod", 7], ["ams", 7], ["isc", 7], ["brand-marks", 8], ["print-social", 8], ["mobile-concepts", 9]];
+  pages.push(`<section class="page">${top("Selected work")}
+    <span class="mono kicker">Index</span>
+    <h2 class="title">10 projects, <span class="it">three skills.</span></h2>
+    <table class="index"><thead><tr><th>#</th><th>Project</th><th>What I did</th><th>Skills</th><th style="text-align:right">Page</th></tr></thead><tbody>
+    ${order.map(([s, pg], i) => { const p = P[s]; return `<tr><td class="n">${String(i + 1).padStart(2, "0")}</td><td class="t">${p.title}<small>${p.type}</small></td><td>${p.summary}<br><span style="color:var(--muted)">${p.role} · ${p.tools.join(", ")}</span></td><td style="white-space:nowrap">${p.disciplines.map((d) => `<span class="dot ${d}"></span>`).join(" ")}</td><td class="p">p.${pg}</td></tr>`; }).join("")}
+    </tbody></table>
+    ${foot(3)}</section>`);
+
+  /* 4 — Cruz & Garcia */
+  pages.push(projectPage(4, "cruz-garcia", "Brand identity",
+    "grid-template-columns:1fr 1fr 0.85fr;grid-template-rows:1fr 1fr 30mm;grid-template-areas:'logo trivia story' 'consult palette story' 'banner banner banner'",
+    `<div class="fr c" style="grid-area:logo"><img src="../assets/img/cg-logo.webp" alt=""><span class="cap">Logo</span></div>` +
+    `<div class="fr c-tight" style="grid-area:trivia"><img src="../assets/img/cg-trivia.webp" alt=""><span class="cap">Social post</span></div>` +
+    `<div class="fr c-tight" style="grid-area:story"><img src="../assets/img/cg-social.webp" alt=""><span class="cap">Social story</span></div>` +
+    `<div class="fr c-tight" style="grid-area:consult"><img src="../assets/img/cg-consult.webp" alt=""><span class="cap">Social post</span></div>` +
+    `<div class="fr" style="grid-area:palette;background:var(--paper);border:1px solid var(--line);padding:5mm;display:flex;flex-direction:column;justify-content:space-between">
+       <span class="mono">Palette</span>
+       <div style="display:flex;gap:2mm"><span style="flex:1;height:16mm;border-radius:6px;background:#ec8b84"></span><span style="flex:1;height:16mm;border-radius:6px;background:#3b8fd9"></span><span style="flex:1;height:16mm;border-radius:6px;background:#fff;border:1px solid var(--line)"></span></div>
+       <p style="font-family:var(--serif);font-size:13pt;line-height:1.15">One smile, used on every piece.</p></div>` +
+    `<div class="fr c-tight" style="grid-area:banner;background:#fff"><img src="../assets/img/cg-banner.webp" alt=""><span class="cap">Campaign banner</span></div>`));
+
+  /* 5 — The Hive */
+  pages.push(projectPage(5, "the-hive", "Website & mobile",
+    "grid-template-columns:1fr 1fr 0.6fr;grid-template-rows:1fr 1fr;grid-template-areas:'home dir mob' 'home con mob'",
+    `<div style="grid-area:home;display:flex;min-height:0">${web("assets/img/hive-home.webp")}</div>` +
+    `<div style="grid-area:dir;display:flex;min-height:0">${web("assets/img/hive-directory.webp")}</div>` +
+    `<div style="grid-area:con;display:flex;min-height:0">${web("assets/img/hive-contact.webp")}</div>` +
+    `<div class="fr dark c-tight" style="grid-area:mob"><img src="../assets/img/hive-mobile.webp" alt=""><span class="cap">Mobile</span></div>`));
+
+  /* 6 — C&O + Cromark */
+  const co = P["c-o-sportswear"], cr = P["cromark"];
+  const half = (p, imgs) => `<div style="display:flex;flex-direction:column;min-height:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2.5mm"><h3 class="serif" style="font-size:20pt">${p.title}</h3><span class="mono">${p.type} · ${p.tools.join(", ")}</span></div>
+      <p style="color:var(--ink-2);margin-bottom:3mm">${p.summary} ${p.points.join(". ")}.</p>
+      <div style="flex:1;display:grid;grid-template-columns:repeat(${imgs.length},1fr);gap:3.5mm;min-height:0">${imgs.map(web).join("")}</div></div>`;
+  pages.push(`<section class="page">${top("Websites")}
+    <span class="mono kicker">Client websites · WordPress</span>
+    <h2 class="title">Sites that <span class="it">sell.</span></h2>
+    <div style="flex:1;display:grid;grid-template-rows:1fr 1fr;gap:7mm;min-height:0">
+      ${half(co, ["assets/img/co-home.webp", "assets/img/co-shop.webp", "assets/img/co-contact.webp"])}
+      ${half(cr, ["assets/img/cromark-home.webp", "assets/img/cromark-message.webp", "assets/img/cromark-contact.webp"])}
+    </div>${foot(6)}</section>`);
+
+  /* 7 — internal apps */
+  const nda = (s) => { const p = P[s]; return `<div class="nda"><div class="wire">${window.WIRES[p.wire]}</div>
+      <div><span class="mono">${p.type} · ${p.role}</span><h4>${p.title}</h4><p style="color:var(--ink-2)">${p.body[0]}</p>
+      <ul class="bul" style="margin-top:2mm">${p.points.filter((t) => !/confidential/i.test(t)).map((t) => `<li>${t}</li>`).join("")}</ul>
+      <div class="tags">${p.tools.map((t) => `<span class="chip">${t}</span>`).join("")}</div></div></div>`; };
+  pages.push(`<section class="page">${top("Internal web apps")}
+    <span class="mono kicker">Lear Corporation · screens under NDA, shown as wireframes</span>
+    <h2 class="title">Tools that <span class="it">remove</span> manual work.</h2>
+    <div class="nda-grid">${nda("pod")}${nda("ams")}${nda("isc")}</div>
+    ${foot(7)}</section>`);
+
+  /* 8 — graphic */
+  pages.push(projectPage(8, "print-social", "Graphic design",
+    "grid-template-columns:1fr 1fr 1fr;grid-template-rows:1.5fr 1fr",
+    img("assets/img/poster-pajama.webp", "c-tight", "Event poster") +
+    img("assets/img/travel-itinerary.webp", "c-tight", "Itinerary") +
+    img("assets/img/work-ethics.webp", "c-tight", "Infographic") +
+    img("assets/img/logo-mdp.webp", "dark c", "App logo") +
+    img("assets/img/logo-fl.webp", "dark c", "App logo") +
+    `<div class="fr" style="background:var(--paper);border:1px solid var(--line);padding:5mm;display:flex;flex-direction:column;justify-content:center"><span class="mono">Logo marks</span><p style="font-family:var(--serif);font-size:15pt;line-height:1.15;margin-top:2mm">${P["brand-marks"].summary}</p></div>`));
+
+  /* 9 — mobile + closing */
+  const m = P["mobile-concepts"];
+  pages.push(`<section class="page">${top("Mobile UI · Contact")}
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:8mm;height:118mm">
+      <div><span class="mono kicker">${m.type} · ${m.tools.join(", ")}</span><h2 class="title">${m.title}</h2><p style="font-size:10.5pt;color:var(--ink-2)">${m.summary}</p>
+        <ul class="bul" style="margin-top:3mm">${m.points.map((t) => `<li>${t}</li>`).join("")}</ul></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">${img("assets/img/stilllife-mobile.webp", "c-tight")}${img("assets/img/lookbook-mobile.webp", "c-tight")}${img("assets/img/dpg-mobile.webp", "c-tight")}</div>
+    </div>
+    <div class="closing">
+      <span class="mono kicker">Next step</span>
+      <h2>Let’s make something <span class="it">clear.</span></h2>
+      <div class="rows">
+        <div><span class="mono">Email</span><a href="mailto:cgabayeron96@gmail.com">cgabayeron96@gmail.com</a></div>
+        <div><span class="mono">Phone / WhatsApp</span><span class="v">+63 928 701 7913</span></div>
+        <div><span class="mono">Full portfolio</span><a href="https://${SITE}/">${SITE}</a></div>
+        <div><span class="mono">Based in</span><span class="v">Cebu, Philippines</span></div>
+      </div>
+    </div>
+    ${foot(9)}</section>`);
+
+  document.getElementById("doc").innerHTML = pages.join("");
+})();
+</script>
+</body>
+</html>
